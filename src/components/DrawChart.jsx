@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Chart } from "react-charts";
-import chartStyles from "@/styles/charts.module.css";
 
 export default function DrawChart({ graphData, type }) {
   const primaryAxis = React.useMemo(
@@ -26,14 +25,14 @@ export default function DrawChart({ graphData, type }) {
   );
 
   return (
-    <div className={chartStyles.container}>
-      <Chart
-        options={{
-          data: graphData,
-          primaryAxis,
-          secondaryAxes,
-        }}
-      />
-    </div>
+    <Chart
+      className="bg-white"
+      options={{
+        data: graphData,
+        primaryAxis,
+        secondaryAxes,
+        padding: 30,
+      }}
+    />
   );
 }

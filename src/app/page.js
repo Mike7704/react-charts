@@ -1,44 +1,69 @@
+"use client";
+import React, { useState } from "react";
 import DrawChart from "@/components/DrawChart";
-import React from "react";
+import { sampleData1, sampleData2, sampleData3 } from "@/lib/sampleData";
+import chartStyles from "@/styles/chart.module.css";
+import CodeEditor from "@uiw/react-textarea-code-editor";
 
 export default function Home() {
-  // Test data
-  const data = React.useMemo(
-    () => [
-      {
-        label: "Series 1",
-        data: [
-          { x: 1, y: 10 },
-          { x: 2, y: 20 },
-          { x: 3, y: 30 },
-          { x: 4, y: 40 },
-          { x: 5, y: 30 },
-        ],
-      },
-      {
-        label: "Series 2",
-        data: [
-          { x: 1, y: 5 },
-          { x: 2, y: 20 },
-          { x: 3, y: 35 },
-          { x: 4, y: 45 },
-          { x: 5, y: 50 },
-        ],
-      },
-    ],
-    []
-  );
+  const [jsonData, setJsonData] = useState(sampleData3);
+  const [data, setData] = useState([]);
+  const [chartType, setChartType] = useState("line");
+
+  const handleAddData = () => {
+    try {
+      const parsedData = JSON.parse(jsonData);
+      setData(parsedData);
+    } catch (error) {
+      alert("Error parsing JSON data: " + error.message);
+    }
+  };
+
+  const handleJsonDataChange = (e) => {
+    setJsonData(e.target.value);
+  };
+
+  const handleChartTypeChange = (e) => {
+    setChartType(e.target.value);
+  };
 
   return (
     <main className="page-content-container">
-      <p className="pb-5">
-        This application provides a demonstration of the{" "}
-        <a href="https://react-charts.tanstack.com/" target="_blank">
-          React Charts
-        </a>{" "}
-        component library. Enter some data below to see it displayed in an interactive chart.
-      </p>
-      <DrawChart graphData={data} type="line" />
+      <div className="input-container">
+        <div className="chart-type-container">
+          <label htmlFor="chartType">Chart Type:</label>
+          <select id="chartType" name="chartType" value={chartType} onChange={handleChartTypeChange}>
+            <option value="line">Line</option>
+            <option value="bar">Bar</option>
+            <option value="area">Area</option>
+          </select>
+        </div>
+        <div className="code-editor-container">
+          <CodeEditor
+            data-color-mode="light"
+            language="json"
+            id="jsonData"
+            value={jsonData}
+            onChange={handleJsonDataChange}
+            placeholder="Enter JSON data here"
+            style={{
+              fontSize: 18,
+            }}
+          />
+        </div>
+        <button onClick={handleAddData}>Draw Chart</button>
+      </div>
+
+      <div className="chart-container">
+        {data.length > 0 && (
+          <>
+            <h2 className={chartStyles.title}>Title</h2>
+            <p className={chartStyles.x_label}>Month</p>
+            <p className={chartStyles.y_label}>Values</p>
+            <DrawChart graphData={data} type={chartType} />
+          </>
+        )}
+      </div>
     </main>
   );
 }

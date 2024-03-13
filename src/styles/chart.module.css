@@ -1,0 +1,30 @@
+.title,
+.x_label,
+.y_label {
+  position: absolute;
+  color: black;
+  z-index: 100;
+}
+
+.title {
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.x_label {
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+}
+
+.y_label {
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 12px;
+  rotate: -90deg;
+}

@@ -21,7 +21,7 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .background-overlay {
@@ -38,12 +38,8 @@ body {
 }
 
 header {
-  font-size: 45px;
   text-align: center;
-  text-decoration: underline;
-  text-underline-offset: 5px;
-  text-transform: uppercase;
-  font-weight: 700;
+  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
   padding: 10px;
 }
 
@@ -56,18 +52,86 @@ footer {
 
 .page-content-container {
   display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0px 20px 0px 20px;
+  height: 100%;
+  gap: 20px;
+}
+
+.input-container {
+  display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1;
-  text-align: center;
-  padding: 0px 20px 0px 20px;
+  gap: 10px;
+  height: 100%;
+  background-color: white;
+  border: 2px solid white;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 2;
+  height: 100%;
+  border: 2px solid white;
+  border-radius: 4px;
+}
+
+h1 {
+  font-size: 45px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 p {
   font-size: 18px;
 }
 
+label {
+  font-size: 18px;
+  color: black;
+}
+
 a {
   text-decoration: underline;
   font-weight: bold;
+}
+
+.chart-type-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.code-editor-container {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 100%;
+  flex: 1;
+  max-height: 633px;
+  overflow: auto;
+}
+
+button,
+input,
+select {
+  background-color: #1651b7;
+  font-size: 18px;
+  color: white;
+  padding: 5px 10px 5px 10px;
+  border: 2px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1156cd;
 }
