@@ -30,6 +30,12 @@ export default function Home() {
   return (
     <main className="page-content-container">
       <div className="input-container">
+        <div>
+          <button onClick={ () => setJsonData(sampleData1) } >Sample Data 1</button>
+          <button onClick={ () => setJsonData(sampleData2) } >Sample Data 2</button>
+          <button onClick={ () => setJsonData(sampleData3) } >Sample Data 3</button>
+          <button onClick={ () => setJsonData('') } >Clear</button>
+        </div>
         <div className="chart-type-container">
           <label htmlFor="chartType">Chart Type:</label>
           <select id="chartType" name="chartType" value={chartType} onChange={handleChartTypeChange}>
