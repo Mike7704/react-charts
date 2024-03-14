@@ -24,7 +24,7 @@
 .y_label {
   top: 50%;
   left: 5px;
-  transform: translateY(-50%);
+  transform: translateY(-50%) rotate(180deg);
   font-size: 12px;
-  rotate: -90deg;
+  writing-mode: vertical-lr;
 }

@@ -62,6 +62,7 @@ footer {
 .input-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   flex: 1;
   gap: 10px;
@@ -72,11 +73,29 @@ footer {
   padding: 10px;
 }
 
+.input-row-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.code-editor-container {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 100%;
+  flex: 1;
+  max-height: 61vh;
+  overflow: auto;
+}
+
 .chart-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 2;
+  flex: 1.8;
   height: 100%;
   border: 2px solid white;
   border-radius: 4px;
@@ -104,24 +123,16 @@ a {
   font-weight: bold;
 }
 
-.chart-type-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.code-editor-container {
-  background-color: white;
+input {
+  font-size: 18px;
+  color: black;
+  padding: 5px;
   border: 2px solid black;
   border-radius: 4px;
-  width: 100%;
-  flex: 1;
-  max-height: 633px;
-  overflow: auto;
+  max-width: 130px;
 }
 
 button,
-input,
 select {
   background-color: #1651b7;
   font-size: 18px;
@@ -130,6 +141,8 @@ select {
   border: 2px solid white;
   border-radius: 4px;
   cursor: pointer;
+  text-align: center;
+  height: 100%;
 }
 
 button:hover {
