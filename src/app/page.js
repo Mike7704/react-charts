@@ -39,14 +39,14 @@ export default function Home() {
       setChartYLabel("Sales");
     } else if (sampleData === 2) {
       setJsonData(sampleData2);
-      setChartTitle("Male and Female Population");
+      setChartTitle("Male and Female UK Population");
       setChartXLabel("Year");
       setChartYLabel("Population");
     } else if (sampleData === 3) {
       setJsonData(sampleData3);
       setChartTitle("Weather");
       setChartXLabel("Month");
-      setChartYLabel("Temp");
+      setChartYLabel("Measurement");
     } else {
       setJsonData("");
       setChartTitle("");
